@@ -1,0 +1,203 @@
+{
+  "cursos": [
+    {
+      "id": "deteccion-incendios-internacional",
+      "url": "https://jarastraining.cl/curso.html?slug=deteccion-incendios-internacional",
+      "codigo": "JDT-DETINT",
+      "nombre": "Diseño e Implementación de Tecnologías para la Detección de Incendios basado en Estándares Internacionales",
+      "nombreCorto": "Detección Internacional",
+      "paginaDetalle": "diseimpdet.html",
+      "categoria": "Estándares Internacionales",
+      "imagen": "curso-deteccion.jpg",
+      "descripcion": "Programa modular de 4 sesiones especializado en sistemas de detección de incendios conforme a estándares internacionales (NFPA, EN, BS).",
+      "duracion": "16 horas",
+      "duracionDias": 4,
+      "sesiones": 4,
+      "duracionSesion": "4 horas",
+      "modalidad": "Presencial, online",
+      "dirigidoA": "Ingenieros, Instaladores Certificados",
+      "validez": "N/A",
+      "certificacion": "Centro de Formación Alerce SpA",
+      "contenido": [
+        "Sesión 1: Fundamentos y normativas internacionales",
+        "Sesión 2: Tecnologías de detección avanzada",
+        "Sesión 3: Diseño de sistemas integrales",
+        "Sesión 4: Implementación y comisionamiento"
+      ],
+      "requisitos": "Experiencia previa en sistemas de detección",
+      "precio": "$244.745",
+      "fechasProgramadas": [
+        {
+          "fechaInicio": "2026-08-10",
+          "fechaFin": "2026-08-20",
+          "estado": "Planificado",
+          "cupos": 15,
+          "cuposDisponibles": 15,
+          "ubicacion": "Quilicura, Santiago",
+          "observaciones": "4 sesiones: 10, 13, 17 y 20 de agosto 2026"
+        }
+      ]
+    },
+    {
+      "id": "operacion-salas-bomba-8h",
+      "url": "https://jarastraining.cl/curso.html?slug=operacion-salas-bomba-8h",
+      "codigo": "JDT-FSBI",
+      "clarke": true,
+      "nombre": "Fundamentos de Sistemas de Bombas de Incendio",
+      "nombreCorto": "Fundamentos de Bombas de Incendio (8h)",
+      "categoria": "Salas de Bomba",
+      "descripcion": "Curso introductorio para personal que opera salas de bomba de sistemas contra incendios accionadas por motores diésel. Entrega los conocimientos básicos para identificar componentes, comprender el funcionamiento del sistema motor-bomba-controlador y reconocer cuándo se requiere servicio técnico certificado, con énfasis en equipos Clarke Fire y controladores Tornatech.",
+      "duracion": "8 horas",
+      "duracionDias": 1,
+      "modalidad": "Presencial",
+      "dirigidoA": "Operadores y Personal Técnico",
+      "validez": "N/A",
+      "certificacion": "Certificado por Clarke Fire",
+      "contenido": [
+        "AE 1 · Componentes del sistema de bombas de incendio: rol del sistema de bombeo, bomba principal y jockey, motor, tablero de control, succión, descarga, válvulas, instrumentos y fuente de abastecimiento",
+        "AE 2 · Principios de operación segura: funcionamiento, secuencia de arranque, variables de operación, alarmas y criterios de operación segura",
+        "AE 3 · Inspección y mantenimiento preventivo: identificación de hallazgos, checklist de inspección, criterios de reporte y mantenimiento inicial",
+        "Práctica supervisada en sala de bombas: reconocimiento de componentes, arranque manual y automático, y recorrido de inspección con checklist NFPA 25",
+        "Evaluación teórica (15 ítems de selección múltiple, aprobación 75%) y evaluación práctica con checklist conductual"
+      ],
+      "requisitos": "Ninguno",
+      "precio": "$275.000",
+      "fechasProgramadas": [
+        {
+          "fechaInicio": "2026-07-24",
+          "fechaFin": "2026-07-24",
+          "estado": "Confirmado",
+          "cupos": 20,
+          "cuposDisponibles": 9,
+          "ubicacion": "Quilicura, Santiago",
+          "observaciones": "Jornada única 10:00 a 18:30 hrs · Inscripción y pago hasta el 17 de julio"
+        }
+      ],
+      "codigoSence": "1238095641",
+      "normas": "NFPA 20 (instalación de bombas contra incendio) y NFPA 25 (inspección, prueba y mantenimiento)"
+    },
+    {
+      "id": "operacion-salas-bomba-16h",
+      "url": "https://jarastraining.cl/curso.html?slug=operacion-salas-bomba-16h",
+      "codigo": "JDT-OSB16",
+      "clarke": true,
+      "nombre": "Operación e Inspección de Salas de Bomba de Sistemas Contra Incendios",
+      "nombreCorto": "Operación e Inspección Salas de Bomba (16h)",
+      "categoria": "Salas de Bomba",
+      "imagen": "capacitacion-practica.jpg",
+      "descripcion": "Capacitación completa de 2 días en operación e inspección de salas de bomba de sistemas contra incendios con motores diésel Clarke Fire y controladores Tornatech. Incluye inspecciones visuales según NFPA 25, operación segura, procedimientos de emergencia y taller práctico con equipos operativos, conforme a las normas NFPA 13, 20, 25, 30 y 72.",
+      "duracion": "16 horas",
+      "duracionDias": 2,
+      "modalidad": "Presencial",
+      "dirigidoA": "Operadores y Personal Técnico",
+      "validez": "N/A",
+      "certificacion": "Certificado por Clarke Fire",
+      "contenido": [
+        "Marco normativo NFPA 13, 20, 25, 30 y 72 y componentes de la sala de bomba",
+        "Sistema motor-bomba-controlador: Clarke Fire y Tornatech",
+        "Sistema de combustible, eléctrico y de refrigeración del motor diésel",
+        "Inspecciones visuales según NFPA 25 con checklists y bitácoras",
+        "Operación en modo manual y procedimientos de emergencia",
+        "Identificación de situaciones anormales y alarmas del controlador",
+        "Taller práctico con motor Clarke Fire y controlador Tornatech operativos",
+        "Evaluación teórica y certificación (asistencia 100% y nota ≥ 70%)"
+      ],
+      "requisitos": "Ninguno",
+      "precio": "$312.500",
+      "fechasProgramadas": []
+    },
+    {
+      "id": "brigada-formacion",
+      "url": "https://jarastraining.cl/curso.html?slug=brigada-formacion",
+      "codigo": "JDT-BRIG-FORM",
+      "nombre": "Formación de Brigada de Emergencia",
+      "nombreCorto": "Formación de Brigada",
+      "categoria": "Brigadas de Emergencia",
+      "imagen": "curso-brigada-formacion.jpg",
+      "descripcion": "Curso de formación inicial para integrantes de brigadas de emergencia. Entrega los conocimientos y habilidades básicas para actuar de forma organizada y segura ante incendios, evacuaciones y emergencias en el lugar de trabajo.",
+      "duracion": "8 horas",
+      "duracionDias": 1,
+      "modalidad": "Presencial",
+      "dirigidoA": "Trabajadores e Integrantes de Brigada",
+      "validez": "N/A",
+      "certificacion": "Centro de Formación Alerce SpA",
+      "contenido": [
+        "Organización y roles de la brigada de emergencia",
+        "Teoría del fuego y métodos de extinción",
+        "Procedimientos de evacuación y zonas de seguridad",
+        "Primeros auxilios básicos",
+        "Comunicación y coordinación durante la emergencia",
+        "Práctica de control de amago de incendio"
+      ],
+      "requisitos": "Ninguno",
+      "precio": "$150.000",
+      "fechasProgramadas": []
+    },
+    {
+      "id": "brigada-especializacion",
+      "url": "https://jarastraining.cl/curso.html?slug=brigada-especializacion",
+      "codigo": "JDT-BRIG-ESP",
+      "nombre": "Especialización de Brigada de Emergencia",
+      "nombreCorto": "Especialización de Brigada",
+      "categoria": "Brigadas de Emergencia",
+      "imagen": "curso-brigada-especializacion.jpg",
+      "descripcion": "Curso avanzado para brigadistas con formación previa. Profundiza en técnicas de control de incendios, uso de equipos especializados y manejo de emergencias complejas, fortaleciendo la capacidad de respuesta de la brigada.",
+      "duracion": "40 horas",
+      "duracionDias": 5,
+      "modalidad": "Presencial",
+      "dirigidoA": "Brigadistas con Formación Previa",
+      "validez": "N/A",
+      "certificacion": "Centro de Formación Alerce SpA",
+      "contenido": [
+        "Técnicas avanzadas de control y extinción de incendios",
+        "Uso de equipos de protección respiratoria (ERA)",
+        "Manejo de mangueras, pitones y líneas de ataque",
+        "Rescate y evacuación de víctimas",
+        "Materiales peligrosos: identificación y respuesta inicial",
+        "Simulacros y ejercicios prácticos de emergencia"
+      ],
+      "requisitos": "Curso de Formación de Brigada o experiencia equivalente",
+      "precio": "$390.000",
+      "fechasProgramadas": []
+    },
+    {
+      "id": "uso-manejo-extintores",
+      "url": "https://jarastraining.cl/curso.html?slug=uso-manejo-extintores",
+      "codigo": "JDT-EXT",
+      "nombre": "Uso y Manejo de Extintores",
+      "nombreCorto": "Uso y Manejo de Extintores",
+      "categoria": "Brigadas de Emergencia",
+      "imagen": "curso-extintores.jpg",
+      "descripcion": "Curso teórico-práctico orientado a capacitar al personal en el uso correcto de extintores portátiles para el control de amagos de incendio, según la clase de fuego y el agente extintor adecuado.",
+      "duracion": "4 horas",
+      "duracionDias": 1,
+      "modalidad": "Presencial",
+      "dirigidoA": "Todo el Personal",
+      "validez": "N/A",
+      "certificacion": "Centro de Formación Alerce SpA",
+      "contenido": [
+        "Teoría del fuego y clases de fuego (A, B, C, D, K)",
+        "Tipos de extintores y agentes de extinción",
+        "Selección del extintor según la clase de fuego",
+        "Técnica de uso (método PASA) y distancia segura",
+        "Inspección y mantención básica de extintores",
+        "Práctica de extinción con fuego controlado"
+      ],
+      "requisitos": "Ninguno",
+      "precio": "$110.000",
+      "fechasProgramadas": []
+    }
+  ],
+  "categorias": [
+    "Estándares Internacionales",
+    "Salas de Bomba",
+    "Brigadas de Emergencia"
+  ],
+  "estados": [
+    "Abierto",
+    "Planificado",
+    "Finalizado",
+    "Cancelado",
+    "Completo"
+  ]
+}

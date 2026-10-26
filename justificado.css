@@ -1,0 +1,22 @@
+/* Alerce — justificar el texto de contenido del sitio.
+   Se fuerza (!important) sobre párrafos, listas y bloques de texto.
+   Los encabezados de página, subtítulos de hero y bloques CTA que están
+   centrados por diseño se mantienen centrados con una excepción explícita.
+   NO se tocan los títulos (h1–h6), nav, botones ni badges.
+   Se carga al final del <head>. */
+p, li, dd, dt, blockquote, figcaption, td, th, caption,
+.faq-body, .cert-txt, .credential-description, .course-description,
+.contact-item p, .highlight-box, .contact-box, .privacy-highlight {
+    text-align: justify !important;
+    text-justify: inter-word;
+    hyphens: none;
+}
+
+/* Bloques centrados por diseño: se mantienen centrados. */
+.banner p, .banner li,
+.subtitle, .hero-subtitle, .milestone-subtitle,
+.cta-final p, .cta-final li, .cta-note, .cta-card p,
+.cta-buttons, .page-header p, .doc-hero p,
+.exclusive-badge, .update-date {
+    text-align: center !important;
+}
