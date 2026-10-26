@@ -59,14 +59,6 @@
     <meta name="twitter:description" content="🔥 Únicos autorizados Clarke Fire Latinoamérica. Cursos NFPA certificados.">
     <meta name="twitter:image" content="https://jarastraining.cl/hero-jaras.png">
     
-    <!-- EmailJS SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script>
-        (function(){
-            emailjs.init("C6E1dGjepERgIWja0");
-        })();
-    </script>
-    
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
@@ -1200,35 +1192,9 @@
     <section id="contacto" style="padding: 5rem 0; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
         <div class="container" style="max-width: 600px;">
             <div class="contact-form">
-                <div id="formMessage" class="form-message"></div>
-                <h3>Solicitar Información</h3>
-                <p style="color: var(--gray-600); margin-bottom: 2rem;">Cuéntenos qué necesita y le responderemos a la brevedad.</p>
-                <form id="contactForm">
-                    <input type="hidden" name="origen" value="home">
-                    <input type="hidden" name="to_email" value="info@jarastraining.cl">
-                    <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off">
-                    <div class="form-group">
-                        <label for="nombre">Nombre Completo *</label>
-                        <input type="text" id="nombre" name="nombre" required placeholder="Su nombre">
-                    </div>
-                    <div class="form-group">
-                        <label for="empresa">Empresa</label>
-                        <input type="text" id="empresa" name="empresa" placeholder="Nombre de su empresa">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required placeholder="correo@empresa.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="telefono">Teléfono</label>
-                        <input type="tel" id="telefono" name="telefono" placeholder="+56 9 XXXX XXXX">
-                    </div>
-                    <div class="form-group">
-                        <label for="mensaje">¿En qué podemos ayudarle?</label>
-                        <textarea id="mensaje" name="mensaje" placeholder="Curso que le interesa, cantidad de participantes, etc."></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">Enviar Solicitud</button>
-                </form>
+<h3>Escríbanos</h3>
+                <p style="color: var(--gray-600); margin-bottom: 2rem;">Para consultas, cotizaciones o inscripciones, escriba a info@jarastraining.cl. Indique el curso que le interesa, el nombre de su empresa y la cantidad de participantes. Respondemos en un plazo de 2 días hábiles.</p>
+                <a href="mailto:info@jarastraining.cl?subject=Consulta%20de%20capacitaci%C3%B3n" class="btn-submit" style="display:block;text-align:center;text-decoration:none;">Escribir a info@jarastraining.cl</a>
             </div>
         </div>
     </section>
@@ -1375,82 +1341,6 @@
             statsObserver.observe(statsSection);
         }
 
-        let lastSubmit = 0;
-        const SUBMIT_COOLDOWN = 30000;
-
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Honeypot anti-spam
-            if (this.querySelector('[name="website"]').value !== '') return false;
-
-            const now = Date.now();
-            if (now - lastSubmit < SUBMIT_COOLDOWN) {
-                showMessage('Por favor espere 30 segundos entre envíos', 'error');
-                return false;
-            }
-            
-            const requiredFields = this.querySelectorAll('[required]');
-            let isValid = true;
-            
-            requiredFields.forEach(field => {
-                if (!field.value.trim()) {
-                    isValid = false;
-                    field.style.borderColor = '#dc2626';
-                } else {
-                    field.style.borderColor = '#10b981';
-                }
-            });
-            
-            if (!isValid) {
-                showMessage('Complete todos los campos obligatorios', 'error');
-                return false;
-            }
-            
-            const button = this.querySelector('button[type="submit"]');
-            const originalText = button.textContent;
-            button.textContent = 'Enviando...';
-            button.disabled = true;
-            
-            // Envío paralelo al CRM
-            const formData = Object.fromEntries(new FormData(document.getElementById('contactForm')));
-            fetch('https://crm.sercloud.cl/api/formulario.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    nombre: formData.nombre || '',
-                    email: formData.email || '',
-                    telefono: formData.telefono || '',
-                    empresa: formData.empresa || '',
-                    notas: formData.mensaje || '',
-                    origen: formData.origen || 'home',
-                }),
-            }).catch(err => console.error('[CRM]', err));
-
-            emailjs.sendForm('service_8rqehck', 'template_azbils9', this)
-                .then(function() {
-                    lastSubmit = Date.now();
-                    gtag_report_conversion();
-                    showMessage('✓ Mensaje enviado. Le contactaremos pronto.', 'success');
-                    document.getElementById('contactForm').reset();
-                    button.textContent = originalText;
-                    button.disabled = false;
-                }, function(error) {
-                    showMessage('Error al enviar. Intente nuevamente o llámenos.', 'error');
-                    button.textContent = originalText;
-                    button.disabled = false;
-                    console.error('EmailJS error:', error);
-                });
-        });
-        
-        function showMessage(text, type) {
-            const msg = document.getElementById('formMessage');
-            msg.textContent = text;
-            msg.className = 'form-message ' + type + ' show';
-            setTimeout(() => {
-                msg.classList.remove('show');
-            }, 5000);
-        }
     </script>
 </body>
 </html>

@@ -239,8 +239,6 @@
             'Brigadas de Emergencia': 'capacitacion-practica.jpg',
             'Corporativo': 'sala-jaras.png',
         };
-        const SUBMIT_COOLDOWN = 30000;
-        let lastSubmit = 0;
         let cursoActual = null;
 
         function esc(s) {
@@ -277,7 +275,7 @@
             document.getElementById('cursoRoot').innerHTML = `
                 <div class="empty-state">
                     <h3>Curso no encontrado</h3>
-                    <p>El curso que buscas no existe o cambió de dirección.</p>
+                    <p>El curso que busca no existe o cambió de dirección.</p>
                     <a href="cursos.html">← Ver todos los cursos</a>
                 </div>`;
         }
@@ -392,7 +390,7 @@
                     }).join('') +
                     `</div></div>`;
             } else {
-                fechasHtml = `<div class="meta-block"><h3 class="section-title">📅 Fechas</h3><p>Fechas por confirmar — consulta disponibilidad con el formulario.</p></div>`;
+                fechasHtml = `<div class="meta-block"><h3 class="section-title">📅 Fechas</h3><p>Fechas por confirmar — consulte disponibilidad por correo a info@jarastraining.cl.</p></div>`;
             }
 
             const requisitosHtml = c.requisitos ? `
@@ -412,6 +410,10 @@
                     </div>
                 </div>` : '';
 
+
+            const nomMail = c.nombreCorto || c.nombre || '';
+            const mailInsc = 'mailto:info@jarastraining.cl?subject=' + encodeURIComponent('Inscripción: ' + nomMail) + '&body=' + encodeURIComponent('Empresa: \nCantidad de participantes: ');
+            const mailCons = 'mailto:info@jarastraining.cl?subject=' + encodeURIComponent('Consulta: ' + nomMail);
 
             document.getElementById('cursoRoot').className = '';
             document.getElementById('cursoRoot').innerHTML = `
@@ -448,7 +450,7 @@
                         </div>
                     </div>
 
-                    <!-- Columna formulario -->
+                    <!-- Columna de contacto -->
                     <div class="card form-card">
                         <div class="form-head">
                             <h2>Inscripción y consultas</h2>
@@ -459,100 +461,14 @@
                                 <span class="label">Valor</span>
                                 <span class="price${esMonto ? '' : ' consultar'}">${esc(c.precio || 'Consultar')}</span>
                             </div>
-                            <a href="inscripcion.html?slug=${encodeURIComponent(c.id)}" class="btn-submit" style="display:block;text-align:center;text-decoration:none;margin-bottom:1rem;">Inscribirme ahora →</a>
-                            <div style="text-align:center;color:#94a3b8;font-size:0.82rem;margin-bottom:1rem;">— o dejar los datos acá y respondemos —</div>
-                            <form id="cursoForm">
-                                <div class="form-group">
-                                    <label for="nombre">Nombre completo *</label>
-                                    <input type="text" id="nombre" name="nombre" required placeholder="Nombre y apellido">
-                                </div>
-                                <div class="form-group">
-                                    <label for="empresa">Empresa</label>
-                                    <input type="text" id="empresa" name="empresa" placeholder="Nombre de la empresa">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email *</label>
-                                    <input type="email" id="email" name="email" required placeholder="correo@empresa.com">
-                                </div>
-                                <div class="form-group">
-                                    <label for="telefono">Teléfono / WhatsApp</label>
-                                    <input type="tel" id="telefono" name="telefono" placeholder="+56 9 XXXX XXXX">
-                                </div>
-                                <div class="form-group">
-                                    <label for="mensaje">Mensaje</label>
-                                    <textarea id="mensaje" name="mensaje" placeholder="¿Cuántas personas? ¿Fecha preferida?"></textarea>
-                                </div>
-                                <div class="form-group" style="display:flex;align-items:flex-start;gap:0.5rem;">
-                                    <input type="checkbox" id="aceptaPrivacidad" required style="margin-top:0.3rem;width:auto;">
-                                    <label for="aceptaPrivacidad" style="font-weight:normal;font-size:0.85rem;">Autorizo el uso de mis datos para responder esta consulta.</label>
-                                </div>
-                                <button type="submit" class="btn-submit">Enviar consulta</button>
-                                <div id="formMessage" class="form-message"></div>
-                            </form>
+                            <p style="color:#475569;font-size:0.92rem;line-height:1.55;margin-bottom:1rem;">Para reservar cupo o pedir información, escriba a info@jarastraining.cl indicando el nombre de su empresa y la cantidad de participantes.</p>
+                            <a href="${mailInsc}" class="btn-submit" style="display:block;text-align:center;text-decoration:none;margin-bottom:0.75rem;">Inscribirme por correo →</a>
+                            <a href="${mailCons}" style="display:block;text-align:center;font-size:0.9rem;font-weight:600;color:var(--primary-color);">Consultar por correo</a>
                         </div>
                     </div>
                 </div>`;
-
-
-            document.getElementById('cursoForm').addEventListener('submit', enviarConsulta);
         }
 
-        function showMessage(text, type) {
-            const msg = document.getElementById('formMessage');
-            msg.textContent = text;
-            msg.className = 'form-message ' + type + ' show';
-            setTimeout(() => msg.classList.remove('show'), 6000);
-        }
-
-        function enviarConsulta(e) {
-            e.preventDefault();
-            const now = Date.now();
-            if (now - lastSubmit < SUBMIT_COOLDOWN) { showMessage('Espera unos segundos entre envíos.', 'error'); return; }
-            const form = e.target;
-            const required = form.querySelectorAll('[required]');
-            let ok = true;
-            required.forEach(f => { if (!f.value.trim()) { ok = false; f.style.borderColor = '#dc2626'; } else { f.style.borderColor = '#10b981'; } });
-            if (!ok) { showMessage('Faltan campos obligatorios.', 'error'); return; }
-            if (!document.getElementById('aceptaPrivacidad').checked) { showMessage('Hay que aceptar la Política de Privacidad para continuar.', 'error'); return; }
-
-            const btn = form.querySelector('button[type="submit"]');
-            const original = btn.textContent;
-            btn.textContent = 'Enviando…'; btn.disabled = true;
-
-            const fd = Object.fromEntries(new FormData(form));
-            const c = cursoActual || {};
-            const payload = {
-                nombre: fd.nombre || '',
-                email: fd.email || '',
-                telefono: fd.telefono || '',
-                empresa: fd.empresa || '',
-                notas: fd.mensaje || '',
-                origen: 'curso-' + (c.id || 'web'),
-                curso_interes: c.nombreCorto || c.nombre || '',
-            };
-
-            fetch('https://crm.sercloud.cl/api/formulario.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload),
-            })
-                .then(r => r.json().catch(() => ({})).then(j => ({ ok: r.ok && j.ok !== false })))
-                .then(res => {
-                    if (res.ok) {
-                        lastSubmit = Date.now();
-                        if (typeof gtag === 'function') { try { gtag('event', 'generate_lead', { curso: payload.curso_interes }); } catch (_) {} }
-                        showMessage('¡Consulta enviada! Respondemos pronto.', 'success');
-                        form.reset();
-                    } else {
-                        showMessage('Error al enviar. Reintentar, o escribir a info@jarastraining.cl.', 'error');
-                    }
-                    btn.textContent = original; btn.disabled = false;
-                })
-                .catch(() => {
-                    showMessage('Error al enviar. Reintentar, o escribir a info@jarastraining.cl.', 'error');
-                    btn.textContent = original; btn.disabled = false;
-                });
-        }
     </script>
 </body>
 </html>

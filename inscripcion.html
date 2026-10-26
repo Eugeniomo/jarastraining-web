@@ -400,162 +400,12 @@
         <div id="course-loading" style="padding:1rem 0;color:#64748b;">Cargando cursos…</div>
     </div>
 
-    <!-- DATOS DEL PARTICIPANTE -->
-    <div class="form-card" id="form-participante">
-        <div class="form-card-header">
-            <div class="icon">👤</div>
-            <h2>Datos del Participante</h2>
-        </div>
-        <div class="form-body">
-            <div class="form-grid">
-                <div class="form-group">
-                    <label>Nombre completo <span class="req">*</span></label>
-                    <input type="text" id="nombre" placeholder="Ej: Juan Pérez González">
-                    <span class="field-error" id="err-nombre"></span>
-                </div>
-                <div class="form-group">
-                    <label>RUT / Documento de identidad <span class="req">*</span></label>
-                    <input type="text" id="rut" placeholder="12.345.678-9 o pasaporte">
-                    <span class="field-error" id="err-rut"></span>
-                </div>
-                <div class="form-group">
-                    <label>Correo electrónico <span class="req">*</span></label>
-                    <input type="email" id="email" placeholder="correo@empresa.com">
-                    <span class="field-error" id="err-email"></span>
-                </div>
-                <div class="form-group">
-                    <label>Teléfono / WhatsApp <span class="req">*</span></label>
-                    <input type="tel" id="telefono" placeholder="+56 9 1234 5678">
-                    <span class="field-error" id="err-telefono"></span>
-                </div>
-                <div class="form-group">
-                    <label>Cargo / Posición <span class="req">*</span></label>
-                    <input type="text" id="cargo" placeholder="Ej: Ingeniero de Proyectos">
-                    <span class="field-error" id="err-cargo"></span>
-                </div>
-                <div class="form-group">
-                    <label>País <span class="req">*</span></label>
-                    <select id="pais" onchange="updateLocalTime()">
-                        <option value="">Seleccionar país</option>
-                        <option value="Chile">🇨🇱 Chile</option>
-                        <option value="Argentina">🇦🇷 Argentina</option>
-                        <option value="Bolivia">🇧🇴 Bolivia</option>
-                        <option value="Colombia">🇨🇴 Colombia</option>
-                        <option value="Ecuador">🇪🇨 Ecuador</option>
-                        <option value="Guatemala">🇬🇹 Guatemala</option>
-                        <option value="México">🇲🇽 México</option>
-                        <option value="Perú">🇵🇪 Perú</option>
-                        <option value="Otro">🌎 Otro</option>
-                    </select>
-                    <span class="field-error" id="err-pais"></span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- DATOS DE FACTURACIÓN -->
-    <div class="form-card" id="form-facturacion">
-        <div class="form-card-header">
-            <div class="icon">🧾</div>
-            <h2>Datos de Facturación</h2>
-        </div>
-        <div class="form-body">
-            <div class="form-grid">
-
-                <div class="tax-notice">
-                    <strong>Documento tributario:</strong> Jaras Training emite factura electrónica en dólares estadounidenses (USD) según normativa tributaria chilena. Los servicios de capacitación están <strong>exentos de IVA</strong> en Chile.<br>
-                    Si la empresa requiere un documento tributario local de su país, recomendamos consultar con el área contable antes de inscribirse.
-                </div>
-
-                <label class="same-payer-check" style="cursor:pointer;">
-                    <input type="checkbox" id="mismo-pagador" onchange="togglePagador()">
-                    <span>El participante es también quien paga — usar mis datos para la factura</span>
-                </label>
-
-                <div class="form-divider"></div>
-                <div class="sub-label" id="lbl-factura">Empresa o persona que recibirá la factura</div>
-
-                <div class="form-group full">
-                    <label>Razón social / Nombre completo <span class="req">*</span></label>
-                    <input type="text" id="empresa" placeholder="Nombre legal de la empresa o persona natural">
-                    <span class="field-error" id="err-empresa"></span>
-                </div>
-                <div class="form-group">
-                    <label>RUT empresa / NIT / RFC / Pasaporte</label>
-                    <input type="text" id="rut-empresa" placeholder="Identificador tributario">
-                </div>
-                <div class="form-group">
-                    <label>Dirección</label>
-                    <input type="text" id="direccion" placeholder="Calle, número, ciudad, país">
-                </div>
-
-                <div class="form-divider"></div>
-                <div class="sub-label">Contacto que recibirá la factura y los datos de conexión al curso</div>
-
-                <div class="form-group">
-                    <label>Nombre del contacto <span class="req">*</span></label>
-                    <input type="text" id="contacto-nombre" placeholder="Nombre completo">
-                    <span class="field-error" id="err-contacto-nombre"></span>
-                </div>
-                <div class="form-group">
-                    <label>Correo electrónico del contacto <span class="req">*</span></label>
-                    <input type="email" id="contacto-email" placeholder="facturacion@empresa.com">
-                    <span class="field-error" id="err-contacto-email"></span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- OBSERVACIONES -->
-    <div class="form-card" id="form-obs">
-        <div class="form-card-header">
-            <div class="icon">💬</div>
-            <h2>Observaciones</h2>
-        </div>
-        <div class="form-body">
-            <div class="form-group">
-                <label>Comentarios o preguntas (opcional)</label>
-                <textarea id="observaciones" placeholder="Ej: requerimientos especiales, consultas sobre el contenido, etc."></textarea>
-            </div>
-        </div>
-    </div>
-
-    <!-- ENVIAR -->
-    <div class="submit-card" id="submit-card">
-        <label class="terms-check">
-            <input type="checkbox" id="terminos">
-            <span>Autorizo el uso de mis datos para procesar mi inscripción y recibir comunicaciones relacionadas con el curso.</span>
-        </label>
-        <button class="btn-submit" id="btn-submit" onclick="enviarFormulario()">
-            Enviar Inscripción →
-        </button>
+<!-- INSCRIPCIÓN POR CORREO -->
+    <div class="submit-card" id="form-participante">
+        <h2 style="font-size:1.15rem;margin-bottom:0.6rem;">Inscripción por correo</h2>
+        <p style="color:var(--gray-600);font-size:0.92rem;line-height:1.6;margin-bottom:1rem;">Seleccione el curso y escriba a info@jarastraining.cl. Indique solo el nombre de su empresa y la cantidad de participantes; no envíe RUT, claves ni datos bancarios. Confirmamos el cupo y enviamos las instrucciones de pago en un plazo de 24 horas hábiles.</p>
+        <a href="#" id="correo-inscripcion" class="btn-submit" style="display:block;text-align:center;text-decoration:none;">Inscribirme por correo →</a>
         <p class="submit-note">Una vez confirmado el cupo, las instrucciones de pago llegan por correo electrónico</p>
-    </div>
-
-    <!-- SUCCESS -->
-    <div class="success-screen" id="success-screen">
-        <div class="success-icon">✓</div>
-        <h2>¡Inscripción Recibida!</h2>
-        <p>La solicitud quedó registrada correctamente.</p>
-        <div class="success-steps">
-            <div class="step-label">¿Qué sigue?</div>
-            <div class="step">
-                <div class="step-num">1</div>
-                <p>Revisaremos la solicitud y confirmaremos el cupo en un plazo de <strong>24 horas hábiles</strong>.</p>
-            </div>
-            <div class="step">
-                <div class="step-num">2</div>
-                <p>Será contactado/a al correo <strong id="email-confirm"></strong> con los datos de transferencia.</p>
-            </div>
-            <div class="step">
-                <div class="step-num">3</div>
-                <p>Realiza la transferencia y envíanos el comprobante.</p>
-            </div>
-            <div class="step">
-                <div class="step-num">4</div>
-                <p>Una vez confirmado el pago, enviamos los <strong>datos de conexión al curso</strong> y la factura electrónica.</p>
-            </div>
-        </div>
     </div>
 
 </div>
@@ -567,19 +417,6 @@
         <a href="https://www.jarastraining.cl">www.jarastraining.cl</a>
     </p>
 </footer>
-
-<script>
-function gtag_report_conversion(url) {
-  var callback = function () {
-    if (typeof(url) != 'undefined') { window.location = url; }
-  };
-  gtag('event', 'conversion', {
-      'send_to': 'AW-17951689812/YrcmCNGWwYocENSYhPBC',
-      'event_callback': callback
-  });
-  return false;
-}
-</script>
 
 <script>
 // ═══════════════════════════════════════════════
@@ -640,41 +477,6 @@ function showLocalBlock(flag, name, timeStr) {
     } catch(e) {}
 })();
 
-function updateLocalTime() {
-    const val = document.getElementById('pais').value;
-    if (!val || !COUNTRY_DATA[val] || val === 'Chile') {
-        document.getElementById('local-time-block').style.display = 'none';
-        document.getElementById('time-sep').style.display = 'none';
-        return;
-    }
-    const d = COUNTRY_DATA[val];
-    showLocalBlock(d.flag, val, formatHour(CHILE_UTC_HOUR, d.offset));
-}
-
-// ═══════════════════════════════════════════════
-// MISMO PAGADOR
-// ═══════════════════════════════════════════════
-function togglePagador() {
-    const checked = document.getElementById('mismo-pagador').checked;
-    const campos = ['empresa', 'rut-empresa', 'direccion', 'contacto-nombre', 'contacto-email'];
-
-    if (checked) {
-        document.getElementById('empresa').value        = document.getElementById('nombre').value;
-        document.getElementById('rut-empresa').value    = document.getElementById('rut').value;
-        document.getElementById('direccion').value      = '';
-        document.getElementById('contacto-nombre').value = document.getElementById('nombre').value;
-        document.getElementById('contacto-email').value  = document.getElementById('email').value;
-        document.getElementById('lbl-factura').textContent = 'Datos del participante (como figura en la factura)';
-        campos.forEach(id => document.getElementById(id).disabled = true);
-    } else {
-        campos.forEach(id => {
-            document.getElementById(id).disabled = false;
-            document.getElementById(id).value = '';
-        });
-        document.getElementById('lbl-factura').textContent = 'Empresa o persona que recibirá la factura';
-    }
-}
-
 // ═══════════════════════════════════════════════
 // SELECCIÓN DE CURSO
 // ═══════════════════════════════════════════════
@@ -689,6 +491,7 @@ function selectCourse(n) {
     // Actualiza el banner de fechas según el curso elegido
     const c = CURSOS[n];
     if (!c) return;
+    actualizarMailto();
     const fechas = document.querySelector('.schedule-dates .dates');
     const label  = document.querySelector('.schedule-dates .label');
     const prog = (c.fechasProgramadas || []).find(f => f.fechaInicio) || (c.fechasProgramadas || [])[0];
@@ -701,6 +504,15 @@ function selectCourse(n) {
     // en presenciales no tiene sentido, se oculta.
     const times = document.querySelector('.schedule-times');
     if (times) times.style.display = (c.modalidad || '').toLowerCase().includes('online') ? '' : 'none';
+}
+
+function actualizarMailto() {
+    const a = document.getElementById('correo-inscripcion');
+    if (!a) return;
+    const c = CURSOS[cursoSeleccionado];
+    const nom = c ? c.nombre : '';
+    a.href = 'mailto:info@jarastraining.cl?subject=' + encodeURIComponent('Inscripción: ' + nom) +
+        '&body=' + encodeURIComponent('Empresa: \nCantidad de participantes: ');
 }
 
 function fmtMeta(c) {
@@ -743,6 +555,7 @@ function renderCursos() {
                 modalidad: c.modalidad, clarke: !!c.clarke, fechasProgramadas: c.fechasProgramadas,
             }));
             renderCursos();
+            actualizarMailto();
             // Preselección por ?slug= o ?curso= (enlace desde el detalle del curso)
             const params = new URLSearchParams(location.search);
             const slug = params.get('slug') || params.get('curso');
@@ -759,117 +572,6 @@ function renderCursos() {
 })();
 
 // ═══════════════════════════════════════════════
-// VALIDACIÓN
-// ═══════════════════════════════════════════════
-const FIELDS = [
-    { id: 'nombre',          err: 'err-nombre' },
-    { id: 'rut',             err: 'err-rut' },
-    { id: 'email',           err: 'err-email' },
-    { id: 'telefono',        err: 'err-telefono' },
-    { id: 'cargo',           err: 'err-cargo' },
-    { id: 'pais',            err: 'err-pais' },
-    { id: 'empresa',         err: 'err-empresa' },
-    { id: 'contacto-nombre', err: 'err-contacto-nombre' },
-    { id: 'contacto-email',  err: 'err-contacto-email' },
-];
-
-function validate() {
-    let ok = true;
-    FIELDS.forEach(f => {
-        const el = document.getElementById(f.id);
-        const err = document.getElementById(f.err);
-        if (!el || el.disabled) return;
-        if (!el.value.trim()) {
-            el.classList.add('error');
-            err.textContent = 'Campo requerido';
-            ok = false;
-        } else {
-            el.classList.remove('error');
-            err.textContent = '';
-        }
-    });
-    if (cursoSeleccionado === null) { alert('Por favor selecciona un curso.'); ok = false; }
-    if (!document.getElementById('terminos').checked) { alert('Hay que aceptar la Política de Privacidad para continuar.'); ok = false; }
-    return ok;
-}
-
-// ═══════════════════════════════════════════════
-// ENVÍO AL CRM (jaras-crm-php) — fuente única de verdad
-// ═══════════════════════════════════════════════
-function enviarFormulario() {
-    if (!validate()) return;
-    const btn = document.getElementById('btn-submit');
-    const originalText = btn.textContent;
-    btn.disabled = true;
-    btn.textContent = 'Enviando...';
-
-    const g = id => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
-    const email = g('email');
-    const pais = document.getElementById('pais').value;
-    const mismoPagador = document.getElementById('mismo-pagador').checked;
-    const cursoObj = CURSOS[cursoSeleccionado] || {};
-    const curso = cursoObj.nombre || '';
-
-    const notas =
-        'INSCRIPCIÓN CURSO: ' + curso +
-        '\nRUT participante: ' + g('rut') +
-        '\nCargo: ' + g('cargo') +
-        '\nPaís: ' + pais +
-        '\nMismo pagador participante/factura: ' + (mismoPagador ? 'Sí' : 'No') +
-        '\nRUT empresa: ' + g('rut-empresa') +
-        '\nDirección facturación: ' + g('direccion') +
-        '\nContacto factura: ' + g('contacto-nombre') + ' / ' + g('contacto-email') +
-        (g('observaciones') ? '\nObservaciones: ' + g('observaciones') : '');
-
-    const payload = {
-        nombre:        g('nombre'),
-        email:         email,
-        telefono:      g('telefono'),
-        empresa:       g('empresa'),
-        pais:          pais,
-        curso_interes: curso,
-        origen:        'inscripcion',
-        notas:         notas,
-    };
-
-    fetch('https://crm.sercloud.cl/api/formulario.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-    })
-        .then(function(r) {
-            return r.json().catch(function() { return {}; })
-                .then(function(j) { return r.ok && j.ok !== false; });
-        })
-        .then(function(ok) {
-            if (ok) {
-                mostrarExito(email);
-            } else {
-                btn.disabled = false;
-                btn.textContent = originalText;
-                alert('Hubo un problema al enviar. Reintentar, o escribir a info@jarastraining.cl.');
-            }
-        })
-        .catch(function(err) {
-            console.error('[CRM]', err);
-            btn.disabled = false;
-            btn.textContent = originalText;
-            alert('Hubo un problema al enviar. Reintentar, o escribir a info@jarastraining.cl.');
-        });
-}
-
-function mostrarExito(email) {
-    gtag_report_conversion();
-    ['lbl-curso','course-section','form-participante','form-facturacion','form-obs','submit-card'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.style.display = 'none';
-    });
-    document.getElementById('email-confirm').textContent = email;
-    document.getElementById('success-screen').classList.add('visible');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-// ═══════════════════════════════════════════════
 // PRESELECCIÓN DE CURSO VIA PARÁMETRO URL
 // ═══════════════════════════════════════════════
 document.addEventListener('DOMContentLoaded', function() {
@@ -883,7 +585,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (otroCard) otroCard.style.display = 'none';
         // Seleccionar este curso
         selectCourse(n);
-        // Scroll al formulario
+        // Scroll al bloque de correo
         setTimeout(() => {
             const form = document.getElementById('form-participante');
             if (form) form.scrollIntoView({ behavior: 'smooth', block: 'start' });

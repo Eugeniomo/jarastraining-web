@@ -173,27 +173,9 @@
                     <div class="contact-item"><h3>Horario</h3><p>Lunes a Viernes: 09:00 &#8211; 13:00 hrs</p></div>
                 </div>
                 <div class="contact-form-side">
-                    <div id="formMessage" class="form-message"></div>
-                    <h3>Solicitar Informaci&#243;n</h3>
-                    <p class="form-subtitle">Le responderemos a la brevedad.</p>
-                    <form id="contactForm">
-                        <input type="hidden" name="origen" value="contacto">
-                        <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off">
-                        <div class="form-row">
-                            <div class="form-group"><label for="nombre">Nombre Completo *</label><input type="text" id="nombre" name="nombre" required placeholder="Su nombre"></div>
-                            <div class="form-group"><label for="empresa">Empresa</label><input type="text" id="empresa" name="empresa" placeholder="Nombre de su empresa"></div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group"><label for="email">Email *</label><input type="email" id="email" name="email" required placeholder="correo@empresa.com"></div>
-                            <div class="form-group"><label for="telefono">Tel&#233;fono</label><input type="tel" id="telefono" name="telefono" placeholder="+56 9 XXXX XXXX"></div>
-                        </div>
-                        <div class="form-group"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" placeholder="&#191;En qu&#233; podemos ayudarle?"></textarea></div>
-                        <div class="form-group" style="display:flex;align-items:flex-start;gap:0.5rem;">
-                            <input type="checkbox" id="aceptaPrivacidad" required style="margin-top:0.3rem;width:auto;">
-                            <label for="aceptaPrivacidad" style="font-weight:normal;font-size:0.85rem;">Autorizo el uso de mis datos para responder esta consulta.</label>
-                        </div>
-                        <button type="submit" class="btn-submit">Enviar Solicitud</button>
-                    </form>
+<h3>Escríbanos</h3>
+                    <p class="form-subtitle">Para consultas, cotizaciones o inscripciones, escriba a info@jarastraining.cl. Indique el curso que le interesa, el nombre de su empresa y la cantidad de participantes. Respondemos en un plazo de 2 días hábiles.</p>
+                    <a href="mailto:info@jarastraining.cl?subject=Consulta%20de%20capacitaci%C3%B3n" class="btn-submit" style="display:block;text-align:center;text-decoration:none;">Escribir a info@jarastraining.cl</a>
                 </div>
             </div>
         </div>
@@ -223,86 +205,12 @@
         window.addEventListener('scroll', function() {
             document.querySelector('.header').classList.toggle('scrolled', window.scrollY > 100);
         });
-        let lastSubmit = 0;
-        const SUBMIT_COOLDOWN = 30000;
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const now = Date.now();
-            if (now - lastSubmit < SUBMIT_COOLDOWN) { showMessage('Por favor espere 30 segundos entre envios', 'error'); return false; }
-            const requiredFields = this.querySelectorAll('[required]');
-            let isValid = true;
-            requiredFields.forEach(field => {
-                if (!field.value.trim()) { isValid = false; field.style.borderColor = '#dc2626'; }
-                else { field.style.borderColor = '#10b981'; }
-            });
-            if (!isValid) { showMessage('Complete todos los campos obligatorios', 'error'); return false; }
-            if (!document.getElementById('aceptaPrivacidad').checked) { showMessage('Debe aceptar la Pol&#237;tica de Privacidad para continuar', 'error'); return false; }
-            const button = this.querySelector('button[type="submit"]');
-            const originalText = button.textContent;
-            button.textContent = 'Enviando...';
-            button.disabled = true;
-            // Envío: el CRM es la única fuente de verdad (sin copia por correo — evita leads duplicados)
-            const formData = Object.fromEntries(new FormData(document.getElementById('contactForm')));
-            const cursoParam = new URLSearchParams(window.location.search).get('curso');
-            const crmPayload = {
-                nombre: formData.nombre || '',
-                email: formData.email || '',
-                telefono: formData.telefono || '',
-                empresa: formData.empresa || '',
-                notas: formData.mensaje || '',
-                origen: formData.origen || 'contacto',
-            };
-            if (cursoParam) crmPayload.curso_interes = cursoParam;
-
-            // CRM — fuente de verdad: su respuesta define éxito/error para el usuario
-            fetch('https://crm.sercloud.cl/api/formulario.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(crmPayload),
-            })
-                .then(function(r) {
-                    return r.json().catch(function() { return {}; })
-                        .then(function(j) { return { ok: r.ok && j.ok !== false }; });
-                })
-                .then(function(res) {
-                    if (res.ok) {
-                        lastSubmit = Date.now();
-                        gtag_report_conversion();
-                        showMessage('Mensaje enviado. Le contactaremos pronto.', 'success');
-                        document.getElementById('contactForm').reset();
-                    } else {
-                        showMessage('Error al enviar. Intente nuevamente o llamenos.', 'error');
-                    }
-                    button.textContent = originalText;
-                    button.disabled = false;
-                })
-                .catch(function(error) {
-                    showMessage('Error al enviar. Intente nuevamente o llamenos.', 'error');
-                    button.textContent = originalText;
-                    button.disabled = false;
-                    console.error('CRM error:', error);
-                });
-        });
-        function showMessage(text, type) {
-            const msg = document.getElementById('formMessage');
-            msg.textContent = text;
-            msg.className = 'form-message ' + type + ' show';
-            setTimeout(() => msg.classList.remove('show'), 5000);
-        }
-
-        // Pre-fill from ?curso= parameter
+        // Enlace de correo con el curso consultado (?curso=)
         (function() {
-            const params = new URLSearchParams(window.location.search);
-            const curso = params.get('curso');
-            if (curso) {
-                var textarea = document.getElementById('mensaje');
-                if (textarea) textarea.value = 'Consulta sobre: ' + curso;
-                var badge = document.createElement('div');
-                badge.style.cssText = 'background:#d1fae5;color:#065f46;border:1px solid #10b981;padding:0.75rem 1rem;border-radius:10px;margin-bottom:1rem;font-weight:500;font-size:0.95rem;';
-                badge.textContent = 'Consultando sobre: ' + curso;
-                var formSide = document.querySelector('.contact-form-side');
-                if (formSide) formSide.insertBefore(badge, formSide.firstChild);
-            }
+            const curso = new URLSearchParams(window.location.search).get('curso');
+            if (!curso) return;
+            const a = document.querySelector('.contact-form-side a.btn-submit');
+            if (a) a.href = 'mailto:info@jarastraining.cl?subject=' + encodeURIComponent('Consulta: ' + curso);
         })();
     </script>
 </body>
