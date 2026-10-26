@@ -1,4 +1,4 @@
-/* Alerce — barra de navegación compartida.
+/* Jaras Training — barra de navegación compartida.
    Se incluye en TODAS las páginas: elimina cualquier header propio y
    monta un menú único e idéntico en todo el sitio. */
 (function () {
@@ -66,7 +66,7 @@
         header.className = 'jt-nav';
         header.innerHTML =
             '<div class="jt-wrap">'
-            + '<a href="index.html" class="jt-logo" aria-label="Inicio"><img src="logo-jdt.png" alt="Centro de Formación Alerce"></a>'
+            + '<a href="index.html" class="jt-logo" aria-label="Inicio"><img src="logo-jdt.png" alt="Jaras Training"></a>'
             + '<button class="jt-toggle" aria-label="Abrir menú">☰</button>'
             + '<ul class="jt-menu">' + links + '</ul>'
             + '<a href="https://jarasdiesel.cl" target="_blank" rel="noopener" aria-label="Jaras Diesel"><img src="logo-jaras-diesel.png" alt="Jaras Diesel" class="jt-diesel"></a>'

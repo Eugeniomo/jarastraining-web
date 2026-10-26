@@ -12,14 +12,14 @@
     </script>
     <script src="cookie-banner.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cursos Certificados Clarke Fire Latinoamérica | Centro de Formación Alerce</title>
-    <meta name="description" id="metaDesc" content="Cursos de operación e inspección de salas de bomba contra incendios (NFPA 20/25). Único centro certificado Clarke Fire en Latinoamérica - Alerce.">
+    <title>Cursos Certificados Clarke Fire Latinoamérica | Jaras Training</title>
+    <meta name="description" id="metaDesc" content="Cursos de operación e inspección de salas de bomba contra incendios (NFPA 20/25). Único centro certificado Clarke Fire en Latinoamérica - Jaras Training.">
     <link rel="canonical" id="metaCanonical" href="https://jarastraining.cl/cursos.html">
     <!-- Open Graph (preview al compartir el link, ej. WhatsApp) -->
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Centro de Formación Alerce SpA">
-    <meta property="og:title" id="ogTitle" content="Cursos | Centro de Formación Alerce">
-    <meta property="og:description" id="ogDesc" content="Capacitación en sistemas contra incendios - Alerce">
+    <meta property="og:site_name" content="Jaras Training">
+    <meta property="og:title" id="ogTitle" content="Cursos | Jaras Training">
+    <meta property="og:description" id="ogDesc" content="Capacitación en sistemas contra incendios - Jaras Training">
     <meta property="og:image" id="ogImage" content="https://jarastraining.cl/hero-jaras.png">
     <meta name="keywords" id="metaKeywords" content="">
     <!-- Datos estructurados del curso (rich results de Google) -->
@@ -299,15 +299,15 @@
             const canonical = c.url || ('https://jarastraining.cl/curso.html?slug=' + (c.id || ''));
             // Título y descripción refuerzan el diferenciador Clarke en los cursos certificados
             const titulo = c.clarke
-                ? `${nombreC} | Certificación Clarke Fire Latam | Centro de Formación Alerce`
-                : `${nombreC} | Centro de Formación Alerce`;
+                ? `${nombreC} | Certificación Clarke Fire Latam | Jaras Training`
+                : `${nombreC} | Jaras Training`;
             const descBase = (c.descripcion || '').replace(/\s+/g, ' ').trim();
             const desc = (c.clarke
                 ? `Único centro certificado Clarke Fire en Latinoamérica. ${descBase}`
                 : descBase).slice(0, 180);
             const keywords = c.clarke
-                ? `${nombreC}, certificación Clarke Fire, curso salas de bomba, NFPA 20, NFPA 25, controladores Tornatech, capacitación bombas contra incendio Latinoamérica, Alerce`
-                : `${nombreC}, ${c.categoria || ''}, capacitación contra incendios, NFPA, Alerce`;
+                ? `${nombreC}, certificación Clarke Fire, curso salas de bomba, NFPA 20, NFPA 25, controladores Tornatech, capacitación bombas contra incendio Latinoamérica, Jaras Training`
+                : `${nombreC}, ${c.categoria || ''}, capacitación contra incendios, NFPA, Jaras Training`;
             document.title = titulo;
             const setAttr = (id, attr, val) => { const el = document.getElementById(id); if (el) el.setAttribute(attr, val); };
             setAttr('metaDesc', 'content', desc);
@@ -317,7 +317,7 @@
             setAttr('ogDesc', 'content', desc);
             setAttr('ogImage', 'content', new URL(imagen, location.href).href);
 
-            // Course schema (datos estructurados) — provider Alerce + credencial Clarke si aplica
+            // Course schema (datos estructurados) — provider Jaras Training + credencial Clarke si aplica
             const precioNum = (c.precio || '').replace(/[^\d]/g, '');
             const courseLd = {
                 "@context": "https://schema.org",
@@ -329,7 +329,7 @@
                 "url": canonical,
                 "provider": {
                     "@type": "EducationalOrganization",
-                    "name": "Centro de Formación Alerce SpA",
+                    "name": "Jaras Training",
                     "url": "https://jarastraining.cl/"
                 },
                 "hasCourseInstance": {
@@ -338,7 +338,7 @@
                     "courseWorkload": c.duracion ? ("PT" + (c.duracion.match(/\d+/) ? c.duracion.match(/\d+/)[0] : "8") + "H") : undefined,
                     "location": {
                         "@type": "Place",
-                        "name": "Centro de Formación Alerce SpA",
+                        "name": "Jaras Training",
                         "address": {
                             "@type": "PostalAddress",
                             "addressLocality": "Quilicura",
@@ -407,7 +407,7 @@
                     <img src="clarke-logo.png" alt="Clarke Fire" class="clarke-logo" loading="lazy">
                     <div class="clarke-text">
                         <strong>Certificado por Clarke Fire</strong>
-                        Alerce es <b>Centro de Capacitación Certificado de Clarke Fire para Latinoamérica</b> y Máster Service Dealer oficial. Este curso cuenta con el respaldo y la validación de Clarke Fire.
+                        Jaras Training es <b>Centro de Capacitación Certificado de Clarke Fire para Latinoamérica</b> y Máster Service Dealer oficial. Este curso cuenta con el respaldo y la validación de Clarke Fire.
                         <a href="certificacion-clarke-fire.html">Ver la certificación Clarke Fire →</a>
                     </div>
                 </div>` : '';
