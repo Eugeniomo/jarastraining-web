@@ -1,44 +1,6 @@
 {
   "cursos": [
     {
-      "id": "deteccion-incendios-internacional",
-      "url": "https://jarastraining.cl/curso.html?slug=deteccion-incendios-internacional",
-      "codigo": "JDT-DETINT",
-      "nombre": "Diseño e Implementación de Tecnologías para la Detección de Incendios basado en Estándares Internacionales",
-      "nombreCorto": "Detección Internacional",
-      "paginaDetalle": "diseimpdet.html",
-      "categoria": "Estándares Internacionales",
-      "imagen": "curso-deteccion.jpg",
-      "descripcion": "Programa modular de 4 sesiones especializado en sistemas de detección de incendios conforme a estándares internacionales (NFPA, EN, BS).",
-      "duracion": "16 horas",
-      "duracionDias": 4,
-      "sesiones": 4,
-      "duracionSesion": "4 horas",
-      "modalidad": "Presencial, online",
-      "dirigidoA": "Ingenieros, Instaladores Certificados",
-      "validez": "N/A",
-      "certificacion": "Centro de Formación Alerce SpA",
-      "contenido": [
-        "Sesión 1: Fundamentos y normativas internacionales",
-        "Sesión 2: Tecnologías de detección avanzada",
-        "Sesión 3: Diseño de sistemas integrales",
-        "Sesión 4: Implementación y comisionamiento"
-      ],
-      "requisitos": "Experiencia previa en sistemas de detección",
-      "precio": "$244.745",
-      "fechasProgramadas": [
-        {
-          "fechaInicio": "2026-08-10",
-          "fechaFin": "2026-08-20",
-          "estado": "Planificado",
-          "cupos": 15,
-          "cuposDisponibles": 15,
-          "ubicacion": "Quilicura, Santiago",
-          "observaciones": "4 sesiones: 10, 13, 17 y 20 de agosto 2026"
-        }
-      ]
-    },
-    {
       "id": "operacion-salas-bomba-8h",
       "url": "https://jarastraining.cl/curso.html?slug=operacion-salas-bomba-8h",
       "codigo": "JDT-FSBI",
