@@ -8,8 +8,7 @@
   div.setAttribute('style', css);
   div.innerHTML =
     '<span style="max-width:640px;">Usamos cookies propias y de Google Ads para medir el rendimiento de nuestras campañas. ' +
-    'Al continuar navegando aceptas su uso. Más información en nuestra ' +
-    '<a href="politica-privacidad.html" style="color:#10b981;font-weight:600;text-decoration:underline;">Política de Privacidad</a>.</span>' +
+    'Al continuar navegando aceptas su uso.</span>' +
     '<button id="jt-cookie-ok" style="background:#10b981;color:#fff;border:0;padding:8px 18px;border-radius:6px;font-weight:600;font-size:13px;cursor:pointer;white-space:nowrap;">Entendido</button>';
   document.addEventListener('DOMContentLoaded', function () {
     document.body.appendChild(div);
