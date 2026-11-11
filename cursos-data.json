@@ -18,9 +18,10 @@
       "contenido": [
         "AE 1 · Componentes del sistema de bombas de incendio: rol del sistema de bombeo, bomba principal y jockey, motor, tablero de control, succión, descarga, válvulas, instrumentos y fuente de abastecimiento",
         "AE 2 · Principios de operación segura: funcionamiento, secuencia de arranque, variables de operación, alarmas y criterios de operación segura",
-        "AE 3 · Inspección y mantenimiento preventivo: identificación de hallazgos, checklist de inspección, criterios de reporte y mantenimiento inicial",
+        "AE 3 · Inspección periódica: identificación de hallazgos, checklist de inspección y criterios de reporte",
         "Práctica supervisada en sala de bombas: reconocimiento de componentes, arranque manual y automático, y recorrido de inspección con checklist NFPA 25",
-        "Evaluación teórica (15 ítems de selección múltiple, aprobación 75%) y evaluación práctica con checklist conductual"
+        "Evaluación teórica (15 ítems de selección múltiple, aprobación 75%) y evaluación práctica con checklist conductual",
+        "El curso no habilita para hacer mantenimiento, reparaciones ni inspecciones y pruebas avanzadas: esas tareas las ejecuta personal especializado y calificado, según la NFPA 25."
       ],
       "requisitos": "Ninguno",
       "precio": "$275.000",
